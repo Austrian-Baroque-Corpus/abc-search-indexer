@@ -28,7 +28,7 @@ ATTRIBUTE "lemma" {
 }
 
 ## column #3
-ATTRIBUTE "type" {
+ATTRIBUTE "pos" {
 	TYPE "MD_MI"
 }
 
@@ -44,6 +44,11 @@ ATTRIBUTE "placeName" {
 
 ## column #6
 ATTRIBUTE "persName" {
+	TYPE "MD_MI"
+}
+
+## column #7
+ATTRIBUTE "pbId" {
 	TYPE "MD_MI"
 }
 
