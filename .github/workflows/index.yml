@@ -91,7 +91,6 @@ jobs:
         run: |
           python --version
           python -m pip install uv
-          uv install
       - name: Build verticals
         run: |
           uv run python noske/mk_verticals.py
