@@ -87,15 +87,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: "pipenv"
+          cache: "uv"
       - name: Install dependencies
         run: |
           python --version
-          python -m pip install pipenv
-          pipenv install
+          python -m pip install uv
+          uv install
       - name: Build verticals
         run: |
-          pipenv run python noske/mk_verticals.py
+          uv run python noske/mk_verticals.py
       # - name: Commit data
       #   uses: stefanzweifel/git-auto-commit-action@v4
       #   with:
