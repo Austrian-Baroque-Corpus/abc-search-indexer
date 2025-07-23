@@ -42,27 +42,27 @@ ATTRIBUTE "plc" {
 	TYPE "MD_MI"
 }
 
-## column #5
+## column #6
 ATTRIBUTE "plcType" {
 	TYPE "MD_MI"
 }
 
-## column #6
+## column #7
 ATTRIBUTE "prs" {
 	TYPE "MD_MI"
 }
 
-## column #7
+## column #8
 ATTRIBUTE "prsType" {
 	TYPE "MD_MI"
 }
 
-## column #7
+## column #9
 ATTRIBUTE "pbId" {
 	TYPE "MD_MI"
 }
 
-## column #7
+## column #10
 ATTRIBUTE "pbN" {
 	TYPE "MD_MI"
 }

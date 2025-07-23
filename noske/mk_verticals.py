@@ -128,6 +128,7 @@ def iterate_attrs(tag: any, attributes: list, list: list) -> list:
     for attr in attributes:
         try:
             val = tag.xpath(attr, namespaces=NS)[0]
+            val = val.replace(" ", "_") if isinstance(val, str) else val
         except IndexError:
             # missing xml:id in Abraham-Mercks_Wien before w with xml:id MW_d1e185558
             val = ""
