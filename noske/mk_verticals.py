@@ -28,8 +28,11 @@ STRUCTURES = [
 
 ENTITIES = [
     "ancestor::tei:placeName/@key",
+    "ancestor::tei:placeName/@type",
     "ancestor::tei:persName/@key",
-    "preceding::tei:pb[1]/@xml:id"
+    "ancestor::tei:persName/@type",
+    "preceding::tei:pb[1]/@xml:id",
+    "preceding::tei:pb[1]/@n",
 ]
 
 TAGS = [
@@ -180,7 +183,7 @@ def write_to_tsv(output_file: str, data_text: list, data_attributes: list) -> No
     with open(output_file, "a", encoding="utf-8") as f:
         doc_id = os.path.basename(output_file).replace(".tsv", "")
         title = doc_id.replace("_", " ")
-        f.write(f'<doc id="{doc_id}" title="{title}" attrs="word lemma type id placeName persName">\n')
+        f.write(f'<doc id="{doc_id}" title="{title}" attrs="w l pos id plc plcType prs prsType idPb idN">\n')
         for idx, text in enumerate(data_text) if data_text else []:
             f.write(text + "\t" + "\t".join(data_attributes[idx]) + "\n")
         f.write("</doc>\n")

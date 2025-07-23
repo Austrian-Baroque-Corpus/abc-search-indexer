@@ -18,12 +18,12 @@ TAGSETDOC ""
 ########## STATIC TOKEN ATTRIBUTES ############
 
 ## column #1
-ATTRIBUTE "word" {
+ATTRIBUTE "w" {
 	TYPE "MD_MD"
 }
 
 ## column #2
-ATTRIBUTE "lemma" {
+ATTRIBUTE "l" {
 	TYPE "MD_MI"
 }
 
@@ -38,17 +38,32 @@ ATTRIBUTE "id" {
 }
 
 ## column #5
-ATTRIBUTE "placeName" {
+ATTRIBUTE "plc" {
+	TYPE "MD_MI"
+}
+
+## column #5
+ATTRIBUTE "plcType" {
 	TYPE "MD_MI"
 }
 
 ## column #6
-ATTRIBUTE "persName" {
+ATTRIBUTE "prs" {
+	TYPE "MD_MI"
+}
+
+## column #7
+ATTRIBUTE "prsType" {
 	TYPE "MD_MI"
 }
 
 ## column #7
 ATTRIBUTE "pbId" {
+	TYPE "MD_MI"
+}
+
+## column #7
+ATTRIBUTE "pbN" {
 	TYPE "MD_MI"
 }
 
