@@ -18,12 +18,12 @@ TAGSETDOC ""
 ########## STATIC TOKEN ATTRIBUTES ############
 
 ## column #1
-ATTRIBUTE "w" {
+ATTRIBUTE "word" {
 	TYPE "MD_MD"
 }
 
 ## column #2
-ATTRIBUTE "l" {
+ATTRIBUTE "lemma" {
 	TYPE "MD_MI"
 }
 

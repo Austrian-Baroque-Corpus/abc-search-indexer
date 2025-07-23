@@ -93,7 +93,7 @@ jobs:
           python -m pip install uv
       - name: Build verticals
         run: |
-          uv run python noske/mk_verticals.py
+          uv run noske/mk_verticals.py
       # - name: Commit data
       #   uses: stefanzweifel/git-auto-commit-action@v4
       #   with:
