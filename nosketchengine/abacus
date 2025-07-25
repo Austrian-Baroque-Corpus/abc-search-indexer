@@ -48,22 +48,22 @@ ATTRIBUTE "id" {
 }
 
 ## column #5
-ATTRIBUTE "plc" {
+ATTRIBUTE "placeName" {
 	TYPE "MD_MI"
 }
 
 ## column #6
-ATTRIBUTE "plcType" {
+ATTRIBUTE "placeType" {
 	TYPE "MD_MI"
 }
 
 ## column #7
-ATTRIBUTE "prs" {
+ATTRIBUTE "persName" {
 	TYPE "MD_MI"
 }
 
 ## column #8
-ATTRIBUTE "prsType" {
+ATTRIBUTE "persType" {
 	TYPE "MD_MI"
 }
 
