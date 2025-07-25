@@ -42,6 +42,7 @@ TAGS = [
 
 TAG_ATTRIBUTES = [
     "@lemma",
+    "@lemma",
     "@type",
     "@xml:id"
 ]
@@ -166,14 +167,14 @@ def extract_text_from_tags(doc_tags: list, blacklist: list) -> Generator[Any, An
                     case "{http://www.tei-c.org/ns/1.0}pc":
                         yield "<g/>\n" + text
                     case _:
-                        yield text
+                        yield text + "\t" + text
         else:
             text = extract_fulltext(subtag, blacklist)
             match tag.tag:
                 case "{http://www.tei-c.org/ns/1.0}pc":
                     yield "<g/>\n" + text
                 case _:
-                    yield text
+                    yield text + "\t" + text
 
 
 def exhaust(generator) -> list:
@@ -184,7 +185,7 @@ def write_to_tsv(output_file: str, data_text: list, data_attributes: list) -> No
     with open(output_file, "a", encoding="utf-8") as f:
         doc_id = os.path.basename(output_file).replace(".tsv", "")
         title = doc_id.replace("_", " ")
-        f.write(f'<doc id="{doc_id}" title="{title}" attrs="word lemma pos id plc plcType prs prsType idPb idN">\n')
+        f.write(f'<doc id="{doc_id}" title="{title}" attrs="word lemma w l pos id plc plcType prs prsType idPb idN">\n')
         for idx, text in enumerate(data_text) if data_text else []:
             f.write(text + "\t" + "\t".join(data_attributes[idx]) + "\n")
         f.write("</doc>\n")
