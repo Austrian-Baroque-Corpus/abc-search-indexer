@@ -22,14 +22,14 @@ ATTRIBUTE "word" {
 	TYPE "MD_MD"
 }
 
-## column #2
-ATTRIBUTE "lemma" {
-	TYPE "MD_MI"
-}
-
 ## column #1
 ATTRIBUTE "w" {
 	TYPE "MD_MD"
+}
+
+## column #2
+ATTRIBUTE "lemma" {
+	TYPE "MD_MI"
 }
 
 ## column #2
