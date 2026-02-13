@@ -17,7 +17,7 @@ TAGSETDOC ""
 
 ########## STATIC TOKEN ATTRIBUTES ############
 
-## column #1
+## column #0
 ATTRIBUTE "word" {
 	TYPE "MD_MD"
 }
@@ -32,50 +32,56 @@ ATTRIBUTE "lemma" {
 	TYPE "MD_MI"
 }
 
-## column #2
+## column #3
 ATTRIBUTE "l" {
 	TYPE "MD_MI"
 }
 
-## column #3
+## column #4
 ATTRIBUTE "pos" {
 	TYPE "MD_MI"
 }
 
-## column #4
+## column #5
 ATTRIBUTE "id" {
 	TYPE "MD_MI"
 }
 
-## column #5
-ATTRIBUTE "placeName" {
-	TYPE "MD_MI"
-}
-
 ## column #6
-ATTRIBUTE "placeType" {
+ATTRIBUTE "oov" {
 	TYPE "MD_MI"
 }
 
 ## column #7
-ATTRIBUTE "persName" {
+ATTRIBUTE "placeName" {
 	TYPE "MD_MI"
 }
 
 ## column #8
-ATTRIBUTE "persType" {
+ATTRIBUTE "placeType" {
 	TYPE "MD_MI"
 }
 
 ## column #9
-ATTRIBUTE "pbId" {
+ATTRIBUTE "persName" {
 	TYPE "MD_MI"
 }
 
 ## column #10
+ATTRIBUTE "persType" {
+	TYPE "MD_MI"
+}
+
+## column #11
+ATTRIBUTE "pbId" {
+	TYPE "MD_MI"
+}
+
+## column #12
 ATTRIBUTE "pbN" {
 	TYPE "MD_MI"
 }
+
 
 ########## STRUCTURES ############
 

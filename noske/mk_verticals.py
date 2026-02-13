@@ -44,7 +44,8 @@ TAG_ATTRIBUTES = [
     "@lemma",
     "@lemma",
     "@type",
-    "@xml:id"
+    "@xml:id",
+    "@ana"
 ]
 
 BLACKLIST = [
