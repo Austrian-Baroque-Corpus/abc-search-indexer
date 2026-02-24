@@ -131,6 +131,9 @@ def iterate_attrs(tag: any, attributes: list, list: list) -> list:
         try:
             val = tag.xpath(attr, namespaces=NS)[0]
             val = val.replace(" ", "_") if isinstance(val, str) else val
+            if attr == "@ana" and val.startswith("#"):
+                val = "".join(tag.xpath(".//text()", namespaces=NS))
+                val = f"{val}__{tag.xpath('@lemma', namespaces=NS)[0]}" if val else ""
         except IndexError:
             # missing xml:id in Abraham-Mercks_Wien before w with xml:id MW_d1e185558
             val = ""
@@ -186,7 +189,7 @@ def write_to_tsv(output_file: str, data_text: list, data_attributes: list) -> No
     with open(output_file, "a", encoding="utf-8") as f:
         doc_id = os.path.basename(output_file).replace(".tsv", "")
         title = doc_id.replace("_", " ")
-        f.write(f'<doc id="{doc_id}" title="{title}" attrs="word lemma w l pos id placeName placeType persName persType idPb idN">\n')
+        f.write(f'<doc id="{doc_id}" title="{title}" attrs="word lemma w l pos id oov placeName placeType persName persType idPb idN">\n')
         for idx, text in enumerate(data_text) if data_text else []:
             f.write(text + "\t" + "\t".join(data_attributes[idx]) + "\n")
         f.write("</doc>\n")
