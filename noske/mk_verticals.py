@@ -196,8 +196,8 @@ def exhaust(generator) -> list:
 
 def write_to_tsv(output_file: str, data_text: list, data_attributes: list) -> None:
     with open(output_file, "a", encoding="utf-8") as f:
-        doc_id = os.path.basename(output_file).replace(".tsv", "")
-        title = doc_id.replace("_", " ")
+        doc_id = "_".join(os.path.basename(output_file).replace(".tsv", "").split("_")[1:])
+        title = " ".join(doc_id.split("_")[1:])
         f.write(f'<doc id="{doc_id}" title="{title}" attrs="word lemma w l pos id oov placeName placeType persName persType idPb idN">\n')
         for idx, text in enumerate(data_text) if data_text else []:
             f.write(text + "\t" + "\t".join(data_attributes[idx]) + "\n")
