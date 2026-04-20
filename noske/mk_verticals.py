@@ -106,7 +106,16 @@ def create_dirs(output_dir: str) -> None:
 
 
 def load_xml_files(input_dir: str) -> list:
-    return glob.glob(os.path.join(input_dir, "*.xml"))
+    sort_xml_index = {
+        "Abraham-Mercks_Wien.xml": 0,
+        "Abraham-Loesch_Wienn.xml": 1,
+        "Abraham-Todten_Bruderschaft.xml": 2,
+        "Abraham-Augustini_feuriges_Hertz.xml": 3,
+        "Abraham-Todten_Capelle.xml": 4,
+    }
+    # sort xml files based on sort_xml_index to ensure correct order of documents in NoSketch Engine
+    return sorted(glob.glob(os.path.join(input_dir, "*.xml")),
+                  key=lambda x: sort_xml_index.get(os.path.basename(x), float("inf")))
 
 
 def list_to_xpaths(items: list) -> str:
@@ -207,9 +216,9 @@ def create_verticals(doc: TeiReader, output_filename) -> None:
 def process_xml_files(input_dir: str, output_dir: str) -> None:
     create_dirs(output_dir)
     xml_files = load_xml_files(input_dir)
-    for xml_file in tqdm(xml_files, total=len(xml_files)):
+    for idx, xml_file in enumerate(tqdm(xml_files, total=len(xml_files), desc="Processing XML files")):
         doc = TeiReader(xml_file)
-        filename = os.path.splitext(os.path.basename(xml_file))[0].replace(".xml", "")
+        filename = f"abacus{idx:03}_{os.path.splitext(os.path.basename(xml_file))[0].replace('.xml', '')}"
         create_verticals(doc, filename)
 
 
