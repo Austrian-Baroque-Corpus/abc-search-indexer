@@ -197,7 +197,7 @@ def exhaust(generator) -> list:
 def write_to_tsv(output_file: str, data_text: list, data_attributes: list) -> None:
     with open(output_file, "a", encoding="utf-8") as f:
         doc_id = "_".join(os.path.basename(output_file).replace(".tsv", "").split("_")[1:])
-        title = " ".join(doc_id.split("_")[1:])
+        title = doc_id.replace("_", " ")
         f.write(f'<doc id="{doc_id}" title="{title}" attrs="word lemma w l pos id oov placeName placeType persName persType idPb idN">\n')
         for idx, text in enumerate(data_text) if data_text else []:
             f.write(text + "\t" + "\t".join(data_attributes[idx]) + "\n")
@@ -218,6 +218,7 @@ def process_xml_files(input_dir: str, output_dir: str) -> None:
     xml_files = load_xml_files(input_dir)
     for idx, xml_file in enumerate(tqdm(xml_files, total=len(xml_files), desc="Processing XML files")):
         doc = TeiReader(xml_file)
+        idx = idx + 1  # start index from 1 for better readability in NoSketch Engine
         filename = f"abacus{idx:03}_{os.path.splitext(os.path.basename(xml_file))[0].replace('.xml', '')}"
         create_verticals(doc, filename)
 
